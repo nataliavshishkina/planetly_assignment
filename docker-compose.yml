@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  web:
+    build: .
+    working_dir: /app/temperatures
+    entrypoint: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; python3 manage.py runserver 0.0.0.0:8000'
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    environment:
+      POSTGRES_HOST: db
+  db:
+    image: "postgres:13.4"
+    restart: always
+    #ports:
+    #  - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: example
