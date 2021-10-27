@@ -126,3 +126,5 @@ Response:
 }
 ```
 
+I cannot say how much hours exactly I spent for implementing this task. 
+It took me 2 evenings, however the first one was only about loading the data (I had some problems with psql \copy). 
