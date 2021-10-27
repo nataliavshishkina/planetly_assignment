@@ -1,4 +1,4 @@
-# Seting up data
+# Setting up the data
 
 * Init DB and `Global_Land_Temperatures_By_City` table (defined using Django ORM):
   * `python manage.py makemigrations`
@@ -37,7 +37,6 @@ curl --location --request PUT 'http://127.0.0.1:8000/api/temperature_entries/upd
 * Get top N cities with highest monthly temperature in `[from; to]` date range:
   * Implemented as 2 subseqent queries using Django ORM.
   * The first query fetches id with the max temperature for each city. The second query reads rows with these ids and find top N.
-  * The call could be a bit more effecent if it was implemented naively in raw SQL with a subquery, but it would be less secure.
 ```
 curl --location --request GET 'http://127.0.0.1:8000/api/top_cities/10/from/2010-01-01/to/2010-12-31/'
 ```
